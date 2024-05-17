@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'><link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+
+
+
+	<div class="section">
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+			          	<label for="reg-log"></label>
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+								<div class="card-front">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<form action="{% url 'check_login' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+											<h4 class="mb-4 pb-3">Log In</h4>
+
+											<div class="form-group">
+												<input type="text" name="name" class="form-style" placeholder="Your Username" id="logemail" autocomplete="off">
+												<i class="input-icon uil uil-at"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="password" name="pass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+											<!-- <a href="#" class="btn mt-4">submit</a> -->
+                        <button type="submit" class="btn mt-4">Sign In</button>
+   									 </form>    				
+				      					</div>
+			      					</div>
+			      				</div>
+								<div class="card-back">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<form action="{% url 'register' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+											<h4 class="mb-4 pb-3">Sign Up</h4>
+											
+											<div class="form-group mt-2">
+												<input type="text" class="form-style" placeholder="Enter Username" 
+												name="uname" pattern="^[a-zA-Z0-9_]{3,20}$" title="Username must be 3-20 characters long and can contain letters, numbers, and underscores"id="uname" autocomplete="off" required>
+												<i class="input-icon uil uil-user"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="email" name="email" class="form-style" placeholder="Enter Email" id="email" autocomplete="off" required>
+												<i class="input-icon uil uil-at"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="text"  class="form-style" placeholder="Enter Phone"  autocomplete="off" name="phone" maxlength="10" minlength="10" pattern="^[0-9]{10}$" title="Phone number must be 10 digits long" id="phone" required>
+												<i class="input-icon uil uil-phone"></i>											</div>
+											<div class="form-group mt-2">
+												<input type="text" class="form-style" placeholder="Enter Public Address" 
+												name="p_address" id="p_address" autocomplete="off" required>
+												<i class="input-icon uil uil-user"></i>
+											</div>
+
+											<div class="form-group mt-2">
+												<input type="password"  class="form-style" placeholder="Your Password"  autocomplete="off" name="pswd" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" title="Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character" id="pswd" required>
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+											<!-- <a href="#" class="btn mt-4">submit</a> -->
+											<button type="submit" class="btn mt-4">Sign Up</button>
+    									</form>
+				      					</div>
+			      					</div>
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>
+
+  <script  src="{% static 'script.js' %}"></script>
+
+</body>
+</html>
